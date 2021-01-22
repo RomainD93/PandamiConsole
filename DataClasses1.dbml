@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PandamiV1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PandamiV1;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="ConsoleBDD.Properties.Settings" SettingsPropertyName="PandamiV1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Adresses" Member="Adresses">
+    <Type Name="Adresses">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NumeroDeVoie" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NomDeVoie" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CodePostal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ville" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="longitude" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Adresses_Feats" Member="Feats" ThisKey="Id" OtherKey="AdresseId" Type="Feats" />
+      <Association Name="Adresses_Membres" Member="Membres" ThisKey="Id" OtherKey="AdresseId" Type="Membres" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Feats" Member="Feats">
+    <Type Name="Feats">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="RealisationDate" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="HeureDebut" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="HeureFin" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="AcceptationDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="EnCoursRealisation" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="SurPlace" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="FinFeatHelper" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ClotureDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="SommePrevoir" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="SommeAvancee" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SommeRembourseeDate" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AnnulationDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="EchangeMonetaire" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateurId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdresseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Adresses_Feats" Member="Adresses" ThisKey="AdresseId" OtherKey="Id" Type="Adresses" IsForeignKey="true" />
+      <Association Name="Membres_Feats" Member="Membres" ThisKey="CreateurId" OtherKey="Id" Type="Membres" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Membres" Member="Membres">
+    <Type Name="Membres">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Naissance" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Inscription" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Mdp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SexeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdresseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Membres_Feats" Member="Feats" ThisKey="Id" OtherKey="CreateurId" Type="Feats" />
+      <Association Name="Adresses_Membres" Member="Adresses" ThisKey="AdresseId" OtherKey="Id" Type="Adresses" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

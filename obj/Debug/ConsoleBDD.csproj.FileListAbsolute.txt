@@ -1,0 +1,7 @@
+C:\Pand-Ami\Code\ConsoleBDD\obj\Debug\ConsoleBDD.csprojAssemblyReference.cache
+C:\Pand-Ami\Code\ConsoleBDD\obj\Debug\ConsoleBDD.csproj.CoreCompileInputs.cache
+C:\Pand-Ami\Code\ConsoleBDD\bin\Debug\ConsoleBDD.exe.config
+C:\Pand-Ami\Code\ConsoleBDD\bin\Debug\ConsoleBDD.exe
+C:\Pand-Ami\Code\ConsoleBDD\bin\Debug\ConsoleBDD.pdb
+C:\Pand-Ami\Code\ConsoleBDD\obj\Debug\ConsoleBDD.exe
+C:\Pand-Ami\Code\ConsoleBDD\obj\Debug\ConsoleBDD.pdb
